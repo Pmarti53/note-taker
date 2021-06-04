@@ -12,6 +12,16 @@ app.use(express.static('Develop/public'));
 app.use('/api', apiRoutes);
 app.use('/', htmlRoutes);
 
-app.listen(3001, () => {
-    console.log(`API server now on port 3001!`);
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
+    console.log(`API server now on port ${PORT}!`);
 });
+
+
+
+// app.post('/notes', (req, res) => {
+//     req.body = notes.length.toString();
+//     const note = newNote(req.body, notes);
+//     res.json(notes);
+// })
